@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    
+}
+
+body {
+    background-image: url(abu-dhabi.png);
+    background-size: cover;
+    
+    
+}
+.container {
+    display: flex;
+
+}
+
+/* .highscore {
+
+} */
+li {
+  list-style-type: none;
+}
+.time{
+    margin-left: auto;
+}
+
+/* div p {
+    width: 50%;
+    border: 5px solid black;
+    
+} */
+
+.title {
+    margin-top: 5%;
+    text-align: center;
+}
+
+
+#questions {
+    visibility: hidden;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    /* border: 5px solid black; */
+    
+}
+
+#homePage {
+    
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    /* border: 5px solid black; */
+
+}
+
+#finalScore {
+    visibility: hidden;
+}
+
+p {
+
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    /* border: 5px solid black; */
+}

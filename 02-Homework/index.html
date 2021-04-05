@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" text = "text/css" href=".\Assets\style.css" />
+ 
+    <title>Code quiz</title>
+</head>
+<body>
+    <header class = "container">
+        <div class = "highscore">View Highscores</div>
+        <div class = "time">Time: </div>
+        <button id= "start-button">Start</button>
+    </header>
+    <main>
+
+        <section id = "homePage">
+
+            <h1 class ="title">Coding Quiz Challenge</h1>
+            <p>Try to Answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+
+        </section>
+        <section id="questions">
+            
+            <h2 id = "gameScore">User Score = 0</h2>
+             <h3 class="qTitle" id="title">Test Title</h3>
+             <ul>
+                <li><button class="btn" id="choice-1" onclick="checkAnswer('choice-1')">One</button></li>
+                <li><button class="btn" id="choice-2" onclick="checkAnswer('choice-2')">Two</button></li>
+                <li><button class="btn" id="choice-3" onclick="checkAnswer('choice-3')">Three</button></li>
+                <li><button class="btn" id="choice-4" onclick="checkAnswer('choice-4')">Four</button></li>
+            </ul> 
+
+            <div id = "finalScore">
+                <h2 id = "scoreTitle">Your Final Score</h2>
+                <button id = "submitScore">Submit Score</button>
+
+            </div>
+        </section>
+        
+        <!-- <div>
+        <h1 class ="title" id="title">Coding Quiz Challenge</h1>
+        </div>
+         Here we load our question set 
+        <section class="questions">
+
+            <p>Try to Answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+
+             <h3 class="qTitle" id="title">Test Title</h3> -->
+            <!-- <ul>
+                <li><button class="btn" id="choice-1">One</button></li>
+                <li><button class="btn" id="choice-2">Two</button></li>
+                <li><button class="btn" id="choice-3">Three</button></li>
+                <li><button class="btn" id="choice-4">Four</button></li>
+            </ul> 
+        </section>
+        <div> -->
+            <!-- <p class = "statement">Try to Answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
+            </div>  -->
+    </main>
+    <footer>
+
+    </footer>
+    <script src=".\Assets\script.js"></script>
+</body>
+</html>
