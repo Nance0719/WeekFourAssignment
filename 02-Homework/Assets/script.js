@@ -12,7 +12,10 @@ var quizQuestions = document.getElementById("questions");
 let theScore = document.getElementById("gameScore");
 let scoreTitle = document.getElementById("scoreTitle");
 let submitScore = document.getElementById("submitScore");
-
+let userHighScore = document.getElementById("initials");
+let viewHighScoreButton = document.getElementById("highscore-button");
+let viewHighScore = document.getElementById("highScore");
+let highScoresList = document.querySelector("#highScores-List");
 
 
 
@@ -51,7 +54,7 @@ let quizes = [
     answerTwo: "2. curly brackets",
     answerThree: "3. quotes",
     answerFour:  "4 parentheses",
-    correctAnswer: "choice-4"
+    correctAnswer: "choice-3"
     },
     {
     question: "The condition in an if/else statement is enclosed within ______.",
@@ -59,7 +62,7 @@ let quizes = [
     answerTwo: "2. curly brackets",
     answerThree: "3. parentheses",
     answerFour:  "4 square brackets", 
-    correctAnswer: "choice-2"
+    correctAnswer: "choice-3"
     }
 ]
 
@@ -74,11 +77,14 @@ let userScore = 0;
 
 
 function displayQuestionOne () {
+    finalUserScore.style.visibility = "hidden";
     gameStartSection.style.visibility = "hidden";
     quizQuestions.style.visibility = "visible";
+    // finalUserScore.classList.toggle("hidden");
+    // gameStartSection.classList.toggle("hidden");
+    // quizQuestions.classList.remove("hidden");
     
         
-
     
     var currentQuestion = quizes[currentQuestionIndex];
 
@@ -91,55 +97,48 @@ function displayQuestionOne () {
     
 };
 
+
 function finalScore() {
     gameStartSection.style.visibility = "hidden";
     quizQuestions.style.visibility = "hidden";
     finalUserScore.style.visibility = "visible";
-    scoreTitle.textContent = "Your final schore = " + userScore;
+    // quizQuestions.classList.toggle("hidden"); // turning hidden on
+    // finalUserScore.classList.remove("hidden"); // turning hidden off
+    scoreTitle.textContent = "Your final score = " + userScore;
+
+    // userScore = 0;
+    // currentQuestionIndex = 0;
 
 
 }
 
 
-/// error is here try console.log in each if statement to see whats going on
+
 function checkAnswer (answer) {
-    
+   
     correct = quizes[currentQuestionIndex].correctAnswer;
+
     if (answer === correct && currentQuestionIndex === finalQuestionIndex) {
-        console.log("first if block calling finalScore right answer final question");
-        console.log(answer);
-        console.log(correct);
-        console.log(currentQuestionIndex); 
-        console.log(finalQuestionIndex);
+        userScore = userScore + 10;
+        theScore.textContent = "User Score = " + userScore;
         finalScore();
     }
     else if (answer !== correct && currentQuestionIndex === finalQuestionIndex) {
-        console.log("second if block calling Final score wrong answer final question");
-        console.log(answer);
-        console.log(correct);
-        console.log(currentQuestionIndex);
-        console.log(finalQuestionIndex);
+        userScore = userScore - 10;
+        theScore.textContent = "User Score = " + userScore;
         finalScore();
     }
 
     else if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
-        console.log("third if black calling displayQuestionOne right answer")
-        console.log(answer);
-        console.log(correct);
-        console.log(currentQuestionIndex);
-        console.log(finalQuestionIndex);
-        userScore = userScore + 1;
+  
+        userScore = userScore + 10;
         theScore.textContent = "User Score = " + userScore;
         currentQuestionIndex++
         displayQuestionOne(); 
         
     }
     else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
-        console.log("fourth if block calling displayQuestionOne wrong answer")
-        console.log(answer);
-        console.log(correct);
-        console.log(currentQuestionIndex);
-        console.log(finalQuestionIndex);
+        userScore = userScore - 10;
         theScore = textContent = "User Score = " + userScore;
         currentQuestionIndex++
         displayQuestionOne();
@@ -149,21 +148,77 @@ function checkAnswer (answer) {
 }
 
 
-
-
-
-
-
     
-function startQuiz() {
+startButton.addEventListener("click", function () {
+
     gameStartSection.style.visibility = "hidden";
     displayQuestionOne();
     
     
-    }
+});
     
 
 
+submitScore.addEventListener("click", function () {
+    gameStartSection.style.visibility = "hidden";
+    quizQuestions.style.visibility = "hidden";
+    finalUserScore.style.visibility = "visible";
+
+    let savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+    let currentUser = userHighScore.value.trim();
+    let newHighScore = {
+        name: currentUser,
+        score: userScore
+    };
+    
+ 
+    savedHighscores.push(newHighScore);
+    localStorage.setItem("savedHighscores" , JSON.stringify(savedHighscores));
+
+    
+
+});
+
+
+
+function displayHighScore() {
+    highScoresList.textContent = "";
+    
+    let scoreList = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+
+    for(let i = 0; i < scoreList.length; i++) {
+
+        let newScoreName = document.createElement("li");
+        newScoreName.textContent = "User Initials - " + scoreList[i].name + " " + "User Score - " + scoreList[i].score;
+
+
+        highScoresList.appendChild(newScoreName);
+
+        
+       
+    }
+
+}
+
+   
+
+
+viewHighScoreButton.addEventListener("click", function () {
+    gameStartSection.style.visibility = "hidden";
+    quizQuestions.style.visibility = "hidden";
+    finalUserScore.style.visibility = "hidden";
+    viewHighScore.style.visibility = "visible";
+
+    let storedScores = JSON.parse(localStorage.getItem("highScores"));
+
+    if(storedScores !== null) {
+        highscores = storedScores;
+    }
+   
+
+    displayHighScore();
+
+});
 
 
 
@@ -174,7 +229,6 @@ function startQuiz() {
 
 
 
-startButton.addEventListener("click", startQuiz);
 
 
 
@@ -183,14 +237,19 @@ startButton.addEventListener("click", startQuiz);
 
 
 
+//                         TASKS TO BE COMPLETED
 
+  
+//  create a timer for questions
+//  set timer to minus 10 seconds from score when answer is wrong. 
+//  set score to give 10 points for right answer and take away 10 if answer is wrong
+//  make a restart button
+//  set all page text to be in the same spot on the page
+// try to clear high scores from memory
+// design a game reset
 
-
-
-
-
-
-
+//  style page
+//  refractor page
 
 
 

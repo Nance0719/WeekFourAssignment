@@ -11,9 +11,9 @@
 </head>
 <body>
     <header class = "container">
-        <div class = "highscore">View Highscores</div>
+        <button id= "highscore-button">View Highscores</button>
         <div class = "time">Time: </div>
-        <button id= "start-button">Start</button>
+        
     </header>
     <main>
 
@@ -21,9 +21,10 @@
 
             <h1 class ="title">Coding Quiz Challenge</h1>
             <p>Try to Answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
-
+            <button id= "start-button">Start</button>
         </section>
-        <section id="questions">
+
+        <section class = "hidden" id="questions">
             
             <h2 id = "gameScore">User Score = 0</h2>
              <h3 class="qTitle" id="title">Test Title</h3>
@@ -33,33 +34,19 @@
                 <li><button class="btn" id="choice-3" onclick="checkAnswer('choice-3')">Three</button></li>
                 <li><button class="btn" id="choice-4" onclick="checkAnswer('choice-4')">Four</button></li>
             </ul> 
+        </section>
 
-            <div id = "finalScore">
+        <section class = "hidden" id = "finalScore">
                 <h2 id = "scoreTitle">Your Final Score</h2>
+                <input type= "text" size = "40" placeholder="Please Enter initials to save high score" name= "initials" id= "initials">
                 <button id = "submitScore">Submit Score</button>
+        </section>
 
-            </div>
+        <section id = "highScore">
+                <h1>Highscores</h1>
+                <div id= "highScores-List"></div>
         </section>
         
-        <!-- <div>
-        <h1 class ="title" id="title">Coding Quiz Challenge</h1>
-        </div>
-         Here we load our question set 
-        <section class="questions">
-
-            <p>Try to Answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
-
-             <h3 class="qTitle" id="title">Test Title</h3> -->
-            <!-- <ul>
-                <li><button class="btn" id="choice-1">One</button></li>
-                <li><button class="btn" id="choice-2">Two</button></li>
-                <li><button class="btn" id="choice-3">Three</button></li>
-                <li><button class="btn" id="choice-4">Four</button></li>
-            </ul> 
-        </section>
-        <div> -->
-            <!-- <p class = "statement">Try to Answer the following code related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds.</p>
-            </div>  -->
     </main>
     <footer>
 
