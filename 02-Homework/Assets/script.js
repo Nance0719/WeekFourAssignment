@@ -1,23 +1,23 @@
 
 // Grab our HTML element References
 let qTitle = document.querySelector("#title");
-let choice1 = document.getElementById("choice-1");
+let choice1 = document.querySelector("#choice-1");
 let choice2 = document.querySelector("#choice-2");
 let choice3 = document.querySelector("#choice-3");
 let choice4 = document.querySelector("#choice-4");
-var startButton = document.getElementById("start-button");
-var gameStartSection = document.getElementById("homePage");
-let finalUserScore = document.getElementById("finalScore");
-var quizQuestions = document.getElementById("questions");
-let theScore = document.getElementById("gameScore");
-let scoreTitle = document.getElementById("scoreTitle");
-let submitScore = document.getElementById("submitScore");
-let userHighScore = document.getElementById("initials");
-let viewHighScoreButton = document.getElementById("highscore-button");
-let viewHighScore = document.getElementById("highScore");
+let startButton = document.querySelector("#start-button");
+let gameStartSection = document.querySelector("#homePage");
+let finalUserScore = document.querySelector("#finalScore");
+let quizQuestions = document.querySelector("#questions");
+let theScore = document.querySelector("#gameScore");
+let scoreTitle = document.querySelector("#scoreTitle");
+let submitScore = document.querySelector("#submitScore");
+let userHighScore = document.querySelector("#initials");
+let viewHighScoreButton = document.querySelector("#highscore-button");
+let viewHighScore = document.querySelector("#highScore");
 let highScoresList = document.querySelector("#highScores-List");
-let quizTimer = document.getElementById("timer");
-let clearButton = document.getElementById("clearHighScores");
+let quizTimer = document.querySelector("#timer");
+let clearButton = document.querySelector("#clearHighScores");
 let gameRestart = document.querySelector(".restart");
 let gameBack = document.querySelector(".gameBack");
 
@@ -84,16 +84,11 @@ let timerInterval;
 
 
 function displayQuestionOne () {
-    // finalUserScore.style.visibility = "hidden";
+
     gameStartSection.style.display = "none";
     quizQuestions.style.display = "block";
 
-    // finalUserScore.classList.toggle("hidden");
-    // gameStartSection.classList.toggle("hidden");
-    // quizQuestions.classList.remove("hidden");
-    
-        
-    
+  
     var currentQuestion = quizes[currentQuestionIndex];
 
         qTitle.textContent = currentQuestion.question;
@@ -109,12 +104,8 @@ function displayQuestionOne () {
 function finalScore() {
     quizQuestions.style.display = "none";
     finalUserScore.style.display = "block";
-    // quizQuestions.classList.toggle("hidden"); // turning hidden on
-    // finalUserScore.classList.remove("hidden"); // turning hidden off
     scoreTitle.textContent = "Your final score = " + userScore;
     clearInterval(timerInterval);
-    // userScore = 0;
-    // currentQuestionIndex = 0;
 
 
 }
@@ -137,14 +128,17 @@ function checkAnswer (answer) {
         }
         else {
         userScore = userScore - 10;
+        
         }
+        timeLeft = timeLeft - 10;
+        quizTimer.textContent = "Time left: " + timeLeft;
         console.log(userScore);
         
-        // timeLeft.textContent = timeLeft - 10;
+     
         theScore.textContent = "User Score = " + userScore;
         finalScore();
     }
-// this time left fix didnt work  need to find another way.
+
     else if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
   
         userScore = userScore + 10;
@@ -159,12 +153,11 @@ function checkAnswer (answer) {
             userScore = 0;
         }
         else {
-        userScore = userScore - 10;
-       ;
-        // timeLeft.textContent = timeLeft - 10;
+            userScore = userScore - 10;
         }
-      
-        // timeLeft.textContent = timeLeft - 10;
+        timeLeft = timeLeft - 10;
+        quizTimer.textContent = "Time left: " + timeLeft;
+
         console.log(userScore);
         theScore.textContent = "User Score = " + userScore;
         currentQuestionIndex++
@@ -196,7 +189,10 @@ startButton.addEventListener("click", function () {
 
 
 submitScore.addEventListener("click", function () {
-   
+    gameStartSection.style.display = "block";
+    finalUserScore.style.display = "none";
+    viewHighScore.style.display = "none";
+
     let savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
     let currentUser = userHighScore.value.trim();
     let newHighScore = {
@@ -207,7 +203,7 @@ submitScore.addEventListener("click", function () {
  
     savedHighscores.push(newHighScore);
     localStorage.setItem("savedHighscores" , JSON.stringify(savedHighscores));
-
+    userHighScore.value = '';
     
 
 });
@@ -234,10 +230,6 @@ function displayHighScore() {
 }
 
 
-
-   
-
-
 viewHighScoreButton.addEventListener("click", function () {
     gameStartSection.style.display = "none";
     quizQuestions.style.display = "none";
@@ -250,7 +242,7 @@ viewHighScoreButton.addEventListener("click", function () {
         highscores = storedScores;
     }
    
-
+    clearInterval(timerInterval);
     displayHighScore();
 
 });
@@ -304,14 +296,9 @@ clearButton.addEventListener("click", function () {
 
 //                         TASKS TO BE COMPLETED
 
-  
-//  set timer to minus 10 seconds from score when answer is wrong. 
-// try and set timer to disappear
-// weird bug with timer while navigating page
-
-
-
-//  style page
+//change questions 
+//make read me
+// make question answers an array
 //  refractor page
 
 
