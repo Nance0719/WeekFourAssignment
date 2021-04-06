@@ -1,7 +1,7 @@
-# Code Enthusiast Quiz
+# Car Enthusiast Quiz
 ## Description
 
-To create a code quiz where when the user clicks the start button, a timer starts and the user is presented with a question
+To create a car quiz where when the user clicks the start button, a timer starts and the user is presented with a question
 and after they answer the question they are presented with another question. If the question is answered incorrectly
 then time is subtracted from the clock. When the user answers all the questions or the timer reaches zero, the game is over.
 Once the game is over, the user can save their initials and score.
@@ -31,7 +31,7 @@ Once pulled over from gitHub onto your local machine.
 
 Here is a screenshot of the actual webpage.
  
- ![Screenshot](./Assets/HomePage.png)
+ ![Screenshot](./Assets/screenshot.png)
 <br>
 ## Credits
 https://bootcamp.unh.edu/ 
@@ -46,7 +46,7 @@ Image by <a href="https://pixabay.com/users/wendy1704-6260273/?utm_source=link-a
 
 
 ## Website
-https://nance0719.github.io/WeekTwoWork/
+https://nance0719.github.io/WeekFourAssignment/
 
 ## License
 MIT License
