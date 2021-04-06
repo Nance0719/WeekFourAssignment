@@ -28,43 +28,30 @@ let gameBack = document.querySelector(".gameBack");
 let quizes = [
     {
 
-   question: "Arrays in Javascript can used to store ______.",
-   answerOne: "Numbers and Settings",
-   answerTwo: "Alerts",
-   answerThree: "booleans",
-   answerFour:  "Other Arrays",
+   question: "A RWD vehicle sends the power to the ___________",
+   answer: ["left side wheels", "right side wheels", "front wheels", "rear wheels"],
    correctAnswer: "choice-4"
     },
+
     {
-    question: "Commonly used data types DO NOT include:",
-    answerOne: "strings",
-    answerTwo: "booleans",
-    answerThree: "alerts",
-    answerFour:  "numbers",
+    question: "A supercharger is _________",
+    answer: ["air driven", "exhaust driven", "belt driven", "liquid driven",],
     correctAnswer: "choice-3"
     },
     {
-    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
-    answerOne: "1. JavaScript",
-    answerTwo: "2. terminal/bash",
-    answerThree: "3. for loops",
-    answerFour:  "4 console.log",
+    question: "A turbocharger is _____________",
+    answer: ["air driven", "liquid driven", "belt driven", "exhaust driven"],
     correctAnswer: "choice-4"
     },
+
     {
-    question: "String values must be enclosed within _______ when being assigned to variables.",
-    answerOne: "1. commas",
-    answerTwo: "2. curly brackets",
-    answerThree: "3. quotes",
-    answerFour:  "4 parentheses",
+    question: "A rear wings actual use is to create ______________",
+    answer: ["better looks", "aerodynamics", "downforce", "speed"],
     correctAnswer: "choice-3"
     },
     {
-    question: "The condition in an if/else statement is enclosed within ______.",
-    answerOne: "1. quotes",
-    answerTwo: "2. curly brackets",
-    answerThree: "3. parentheses",
-    answerFour:  "4 square brackets", 
+    question: "The term V8, W8, Flat 8, inline 8 all mean the car has _____________",
+    answer: ["six cylinders", "four cylinders", "eight cylinders", "ten cylinders"], 
     correctAnswer: "choice-3"
     }
 ]
@@ -92,10 +79,10 @@ function displayQuestionOne () {
     var currentQuestion = quizes[currentQuestionIndex];
 
         qTitle.textContent = currentQuestion.question;
-        choice1.textContent = currentQuestion.answerOne;
-        choice2.textContent = currentQuestion.answerTwo;
-        choice3.textContent = currentQuestion.answerThree;
-        choice4.textContent = currentQuestion.answerFour;
+        choice1.textContent = currentQuestion.answer[0];
+        choice2.textContent = currentQuestion.answer[1];
+        choice3.textContent = currentQuestion.answer[2];
+        choice4.textContent = currentQuestion.answer[3];
 
     
 };
@@ -218,7 +205,7 @@ function displayHighScore() {
     for(let i = 0; i < scoreList.length; i++) {
 
         let newScoreName = document.createElement("li");
-        newScoreName.textContent = "User Initials - " + scoreList[i].name + " " + "User Score - " + scoreList[i].score;
+        newScoreName.textContent = "Initials - " + scoreList[i].name + "    |   " + "Score - " + scoreList[i].score;
 
 
         highScoresList.appendChild(newScoreName);
