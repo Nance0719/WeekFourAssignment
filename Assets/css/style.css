@@ -5,7 +5,8 @@
 }
 
 body {
-    background-image: url(abu-dhabi.png);
+    background-image: url(C:/Users/anyth/nanceBT/WeekFourAssignment/Assets/image/abu-dhabi.png);
+    background-size: 100%;
     font-size: larger;
     
     
@@ -40,6 +41,7 @@ li {
 }
 .time{
     margin-left: auto;
+    font-size: 2rem;
 }
 
 
@@ -85,14 +87,15 @@ p, h1, li {
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 879px) {
 
     
     body {
+        background-size:auto;
         font-size: 1rem;
         color: whitesmoke;
     }
-    button{
+    .time, button{
         font-size: 1rem;
     
     }

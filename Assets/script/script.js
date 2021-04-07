@@ -56,9 +56,9 @@ let quizes = [
     }
 ]
 
-var finalQuestionIndex = quizes.length - 1;
-var currentQuestionIndex = 0;
-var correct;
+let finalQuestionIndex = quizes.length - 1;
+let currentQuestionIndex = 0;
+let correct;
 let userScore = 0;
 let timeLeft = 59;
 let timerInterval;
@@ -76,7 +76,7 @@ function displayQuestionOne () {
     quizQuestions.style.display = "block";
 
   
-    var currentQuestion = quizes[currentQuestionIndex];
+    let currentQuestion = quizes[currentQuestionIndex];
 
         qTitle.textContent = currentQuestion.question;
         choice1.textContent = currentQuestion.answer[0];
