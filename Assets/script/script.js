@@ -110,13 +110,7 @@ function checkAnswer (answer) {
         finalScore();
     }
     else if (answer !== correct && currentQuestionIndex === finalQuestionIndex) {
-        if (userScore === 0) {
-            userScore = 0;
-        }
-        else {
-        userScore = userScore - 10;
         
-        }
         timeLeft = timeLeft - 10;
         quizTimer.textContent = "Time left: " + timeLeft;
         console.log(userScore);
@@ -136,12 +130,7 @@ function checkAnswer (answer) {
         
     }
     else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
-        if (userScore === 0) {
-            userScore = 0;
-        }
-        else {
-            userScore = userScore - 10;
-        }
+       
         timeLeft = timeLeft - 10;
         quizTimer.textContent = "Time left: " + timeLeft;
 
