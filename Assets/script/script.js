@@ -280,14 +280,3 @@ clearButton.addEventListener("click", function () {
 
 
 
-
-//                         TASKS TO BE COMPLETED
-
-//change questions 
-//make read me
-// make question answers an array
-//  refractor page
-
-
-
-
