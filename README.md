@@ -46,7 +46,7 @@ Image by <a href="https://pixabay.com/users/wendy1704-6260273/?utm_source=link-a
 
 
 ## Website
-https://nance0719.github.io/WeekFourAssignment/
+https://coreynance.github.io/WeekFourAssignment/
 
 ## License
 MIT License
